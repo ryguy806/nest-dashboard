@@ -7,9 +7,18 @@ import { BounceRatesModule } from './bounce_rates/bounce_rates.module';
 import { UniquePageViewsModule } from './unique_page_views/unique_page_views.module';
 import { NewVisitorsModule } from './new_visitors/new_visitors.module';
 import { ReturningVisitorsModule } from './returning_visitors/returning_visitors.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [WebTrafficModule, SessionsModule, BounceRatesModule, UniquePageViewsModule, NewVisitorsModule, ReturningVisitorsModule],
+  imports: [
+    WebTrafficModule,
+    SessionsModule,
+    BounceRatesModule,
+    UniquePageViewsModule,
+    NewVisitorsModule,
+    ReturningVisitorsModule,
+    MongooseModule.forRoot('mongodb://localhost/nest'),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
